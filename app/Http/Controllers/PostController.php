@@ -67,7 +67,7 @@ class PostController extends Controller
             $this->upload($im, $request->input('name'), $post->id);
         }
 
-        return redirect('post')->with('message', 'Votre article a bien été enregistré !');
+        return redirect('post')->with(['message' => sprintf('Votre article a bien été enregistré !')]);
     }
 
     /**
@@ -105,7 +105,6 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
-        dd($request->all());
         $post = Post::findOrFail($id);
         $post->update($request->all());
 
@@ -125,7 +124,7 @@ class PostController extends Controller
                 $post->picture->update($request->all());
         }
 
-        return redirect('post')->with(['message', 'Votre article a bien été modifié.']);
+        return redirect('post')->with(['message' => sprintf('Votre article a bien été modifié.')]);
     }
 
 

@@ -24,7 +24,7 @@ class LoginController extends Controller
 			 $credentials = $request->only('email', 'password');
 			 
 			 if(Auth::attempt($credentials, $remember)){
-				 return redirect('post')->with(['message', 'Vous êtes maintenant connecté !']);
+				 return redirect('post')->with(['message' => 'Vous êtes maintenant connecté !']);
 			 }else{
 				 return back()->withInput($request->only('email', 'remember'))->with(['message' => 'Erreur lors de l\'authentification, veuillez vérifier votre adresse mail ou votre mot de passe !']);
 			 }
@@ -37,6 +37,6 @@ class LoginController extends Controller
 	public function logout(){
 		Auth::logout();
 		
-		return redirect('/')->with(['message', 'Vous êtes bien déconnecté !']);
+		return redirect('/');
 	}
 }
