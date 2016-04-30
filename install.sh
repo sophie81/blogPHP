@@ -26,6 +26,7 @@ if [ ! -d ./node_modules ]; then
 	npm install --save-dev gulp-concat
 	npm install --save-dev gulp-rename
 	npm install --save-dev gulp-uglify
+
 else 
 	echo "ok pour gulp"
 fi
